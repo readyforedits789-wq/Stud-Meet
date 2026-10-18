@@ -1,0 +1,6 @@
+/* Floating calculator */
+#calc{position:absolute;left:34px;top:34px;width:300px;background:var(--pn);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid var(--bd);border-radius:20px;box-shadow:var(--sh);z-index:20;resize:both;overflow:auto;min-width:260px}
+#ch{padding:10px 14px;cursor:move;display:flex;justify-content:space-between;align-items:center;background:var(--pn2);border-radius:20px 20px 0 0}
+#cb{padding:12px}#cd{font:600 26px "DM Sans";text-align:right;padding:8px 4px;min-height:48px;overflow-x:auto}
+.tabs{display:flex;gap:4px;margin-bottom:8px}.tabs button{flex:1;padding:5px;font-size:13px}
+.keys{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:8px}.keys button{padding:10px 0;border-radius:12px}

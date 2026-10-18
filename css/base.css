@@ -1,0 +1,22 @@
+/* Design tokens, reset, buttons, inputs */
+:root{--bg:#0d1017;--bg2:#141925;--pn:rgba(28,34,50,.72);--pn2:rgba(255,255,255,.06);--tx:#f4f1e8;--mu:#98a2b8;--ac:#ffd23f;--ac-2:#ff9f1c;--ac2:#46e3d8;--bd:rgba(255,255,255,.1);--bad:#ff6b6b;--r:16px;--sh:0 12px 40px rgba(0,0,0,.45)}
+[data-t=light]{--bg:#f6f3ea;--bg2:#ebe6d6;--pn:rgba(255,255,255,.8);--pn2:rgba(20,25,40,.06);--tx:#171c2b;--mu:#636d85;--bd:rgba(20,25,40,.12);--ac:#e6a800;--ac-2:#d98200;--ac2:#0aa89e;--sh:0 12px 36px rgba(60,50,20,.15)}
+*{box-sizing:border-box}html,body{height:100%}
+body{margin:0;font:15px/1.55 "DM Sans",system-ui,sans-serif;background:var(--bg);color:var(--tx);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(60% 50% at 85% 0%,rgba(255,210,63,.16),transparent 70%),radial-gradient(50% 45% at 0% 100%,rgba(70,227,216,.14),transparent 70%),var(--bg)}
+h1,h2,h3{font-family:"Bricolage Grotesque",system-ui,sans-serif;margin:0;letter-spacing:-.025em}
+button,input,select{font:inherit;color:inherit}
+button{background:var(--pn2);border:1px solid var(--bd);border-radius:12px;padding:8px 14px;cursor:pointer;transition:transform .15s,background .15s,border-color .15s}
+button:hover{border-color:var(--ac);transform:translateY(-1px)}button:active{transform:none}
+button:disabled{opacity:.4;cursor:not-allowed;transform:none}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--ac2);outline-offset:2px}
+button.p{background:linear-gradient(135deg,var(--ac),var(--ac-2));color:#1a1200;border:0;font-weight:700;box-shadow:0 6px 22px rgba(255,170,30,.3)}
+button.on{background:var(--ac2);color:#052321;border-color:var(--ac2);font-weight:600}
+button.off{background:rgba(255,107,107,.16);color:var(--bad);border-color:rgba(255,107,107,.4)}
+input,select{background:var(--pn2);border:1px solid var(--bd);border-radius:12px;padding:10px 13px;width:100%}
+input::placeholder{color:var(--mu)}
+label{font-size:13px;color:var(--mu)}
+.hide{display:none!important}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#4ade80;margin-right:7px;box-shadow:0 0 0 4px rgba(74,222,128,.2)}
+#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--ac);color:#1a1200;padding:10px 18px;border-radius:999px;z-index:99;font-weight:700;box-shadow:var(--sh)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}

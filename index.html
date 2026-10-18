@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>StudySpace - Study together on one board</title>
+<meta name="description" content="StudySpace: group study rooms with a shared whiteboard, calculator, chat, mic and camera.">
+<meta name="theme-color" content="#0d1017">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.json">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/home.css">
+<link rel="stylesheet" href="css/room.css">
+<link rel="stylesheet" href="css/calculator.css">
+</head><body data-t="dark">
+
+<div id="home">
+ <nav class="nav"><div class="logo"><i></i>StudySpace</div><div class="links"><a href="pages/help.html">How it works</a><button id="th" aria-label="Toggle light or dark theme">Theme</button></div></nav>
+ <section class="hero">
+  <div><h1>Study together, on one board.</h1>
+   <p>Open a room, write on a shared whiteboard, use a built-in calculator, chat, and talk with your group.</p>
+   <div class="chips"><span>Shared whiteboard</span><span>Scientific calculator</span><span>Live chat</span><span>Mic and camera</span></div>
+   <div class="stats"><div><b id="sOn">0</b><span><i class="dot"></i>students online</span></div><div><b id="sRm">0</b><span>rooms live</span></div></div></div>
+  <div class="box">
+   <label for="nm">Your name</label><input id="nm" placeholder="e.g. Ali" maxlength="20">
+   <div class="row"><button class="p" id="mk" style="flex:1;padding:12px">Create a room</button></div>
+   <label style="display:block;margin-top:16px" for="jc">Have a room code?</label>
+   <div class="row" style="margin:6px 0 0"><input id="jc" placeholder="Room code"><button id="jb">Join</button></div>
+  </div>
+ </section>
+ <section class="sec"><h2>Live rooms</h2><div class="rooms" id="rl"></div></section>
+ <section class="sec"><h2>Everything a study group needs</h2><div class="feats">
+  <div class="feat"><b>Whiteboard</b><span>Multiple pages, grid, zoom, images. The host controls who can write.</span></div>
+  <div class="feat"><b>Calculator</b><span>Basic, scientific and electronics modes you can drag around the board.</span></div>
+  <div class="feat"><b>Chat and voice</b><span>Message the whole room, switch your mic and camera on or off.</span></div>
+  <div class="feat"><b>Host controls</b><span>Give or take back writing permission for each person.</span></div></div></section>
+ <footer><span>StudySpace</span><a href="pages/help.html">Help</a></footer>
+</div>
+
+<div class="modal hide" id="cm"><div class="box">
+ <h3>Create a room</h3>
+ <label for="rn">Room name</label><input id="rn" placeholder="Physics revision" maxlength="30">
+ <label for="rc">Room code (leave empty to auto-generate)</label><input id="rc" placeholder="e.g. PHY101" maxlength="12">
+ <label for="rv">Visibility</label><select id="rv"><option value="1">Public (shown on home page)</option><option value="0">Private (join with code only)</option></select>
+ <div class="row"><button id="cx">Cancel</button><button class="p" id="cg" style="flex:1">Create and open</button></div>
+ <div id="ce" style="color:var(--bad)"></div>
+</div></div>
+
+<div id="room" class="hide">
+ <header class="rhead"><div class="logo"><i></i><span id="rt">Room</span></div><div><span id="rcode" style="color:var(--mu)"></span> <button id="cp">Copy code</button></div></header>
+ <div id="bt">
+  <button data-tool="pen" class="on">Pen</button><button data-tool="hl">Highlighter</button><button data-tool="er">Eraser</button>
+  <input type="color" id="col" value="#1f4fd8" aria-label="Colour"><input type="range" id="sz" min="1" max="24" value="3" aria-label="Size">
+  <button id="gd">Grid</button><button id="zo" aria-label="Zoom out">−</button><span id="zl">100%</span><button id="zi" aria-label="Zoom in">+</button>
+  <button id="ap">+ Page</button><button id="im">Image</button><input type="file" id="fi" accept="image/*" class="hide">
+  <button id="cl">Clear page</button><button id="cc">Calculator</button><span class="ro" id="ro"></span>
+ </div>
+ <div id="main"><div id="vids"></div><div id="scroll"></div>
+  <div id="calc" class="hide"><div id="ch"><b>Calculator</b><button id="cz" style="padding:0 9px" aria-label="Close">×</button></div><div id="cb"></div></div></div>
+ <aside id="side"><h3>People <span id="pc"></span></h3><div id="ppl"></div><h3>Chat</h3><div id="chat"></div>
+  <form id="cf"><input id="ci" placeholder="Message everyone" autocomplete="off"><button class="p">Send</button></form></aside>
+ <div id="ctl"><button id="mic">Mic off</button><button id="cam">Camera off</button><button id="hand">Raise hand</button><button id="lv">Leave</button></div>
+</div>
+
+<script src="js/core/config.js"></script>
+<script src="js/core/presence.js"></script>
+<script src="js/core/rooms.js"></script>
+<script src="js/core/permissions.js"></script>
+<script src="js/features/whiteboard.js"></script>
+<script src="js/features/chat.js"></script>
+<script src="js/features/media.js"></script>
+<script src="js/features/calculator.js"></script>
+<script src="js/main.js"></script>
+</body></html>
